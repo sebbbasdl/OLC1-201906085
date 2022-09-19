@@ -5,26 +5,28 @@
  */
 package Utils;
 import Estructuras.Instructions.Instruccion;
+import Estructuras.Arbol;
 import java.util.LinkedList;
 import java.io.File;
 import java.io.FileInputStream;
 public class Analizador {
     
+    private Arbol arbol;
+    private LinkedList<Instruccion> AST_arbolSintaxisAbstracta;
+    
     public Analizador() {
         
     }
     
-    public String interpretar(String text, String trad) {
-        //System.out.println("hola");
+    public String interpretar(String text,String trad) {
         File file = new File("./public/parse.txt");  
         (new Files()).crearArchivo(file, text);
         analizadores.Sintactico pars;
-        LinkedList<Instruccion> AST_arbolSintaxisAbstracta = null;
         try {
             pars=new analizadores.Sintactico(new analizadores.Lexico(new FileInputStream(file)));
             pars.parse();        
             AST_arbolSintaxisAbstracta=pars.getAST();
-            //arbol = pars.getArbol();
+            arbol = pars.getArbol();
         } catch (Exception ex) {
             System.out.println("Error fatal en compilación de entrada.");
             System.out.println("Causa: "+ex);
@@ -32,7 +34,9 @@ public class Analizador {
         return ejecutarAST(AST_arbolSintaxisAbstracta,trad);
     }
     
-    
+    public Arbol getArbol(){
+        return this.arbol;
+    }
     
     public String ejecutarAST(LinkedList<Instruccion> ast, String trad) {
         if(ast==null){

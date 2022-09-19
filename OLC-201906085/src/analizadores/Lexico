@@ -17,11 +17,18 @@ import java_cup.runtime.Symbol;
 
 BLANCOS=[ \r\t]+
 D=[0-9]+
+L=[a-zA-Z_ñÑ]+
 DD=[0-9]+("."[  |0-9]+)?
 cadena= (\"[^\"]*\")|(\"[^\"]*\"(\"[^\"]*\")*)
 id=[a-zA-Z_ñÑ][a-zA-Z0-9_ñÑ]*
 char= (\'[^\']\')|(\'\'\'\')|("#"{D})
 bool ="true"|"false"
+comentarios=/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/
+comentarioUno=//([a-zA-Z_ñÑ]|[ \r\t]|[0-9]+|.|_|-|\"|\*|=|\+|-|/|#|%|&|\?|¡|¿|!)*
+
+
+
+
 
 %%
 ";"                 {return new Symbol(sym.PTCOMA,yyline,yychar, yytext());} 
@@ -56,7 +63,9 @@ bool ="true"|"false"
 
 \n {yychar=1;}
 
-{BLANCOS} {}  
+{BLANCOS} {}
+{comentarios} {}  
+{comentarioUno} {}  
 {DD}                 {return new Symbol(sym.T_FLOAT,yyline,yychar,yytext());}
 {D}                 {return new Symbol(sym.T_ENTERO,yyline,yychar,yytext());}
 {bool}              {return new Symbol(sym.T_VALOR_BOOL,yyline,yychar,yytext());}

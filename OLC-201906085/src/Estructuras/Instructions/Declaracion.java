@@ -83,9 +83,12 @@ public class Declaracion implements Instruccion{
         }else if(tipo=="int"&& flag_float==true){
             //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
             aux= this.id.toString()+"= "+val.traducirPY()+"\n" ;
-        }else if(tipo=="asig"){
+        }else if(tipo=="asig" && this.val!=null){
             //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
             aux= this.id.toString()+" = "+val.traducirPY()+"\n" ;
+        }else if(tipo=="asig" && this.val==null){
+            //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
+            aux= this.id.toString()+" = "+this.valor.toString()+"\n" ;
         }
         
         
@@ -129,9 +132,12 @@ public class Declaracion implements Instruccion{
         }else if(tipo=="int"&& flag_float==true){
             //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
             aux= "var "+this.id.toString()+" float = "+val.traducirGO()+"\n" ;
-        }else if(tipo=="asig"){
+        }else if(tipo=="asig" && this.val!=null){
             //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
             aux= this.id.toString()+" = "+val.traducirGO()+"\n" ;
+        }else if(tipo=="asig" && this.val==null){
+            //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
+            aux= this.id.toString()+" = "+this.valor.toString()+"\n" ;
         }
         
         return aux;

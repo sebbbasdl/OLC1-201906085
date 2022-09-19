@@ -7,6 +7,7 @@ package analizadores;
 
 import java_cup.runtime.*;
 import Estructuras.Node;
+import Estructuras.Arbol;
 import Estructuras.Production;
 import Estructuras.Instructions.Declaracion;
 import Estructuras.Instructions.Operacion;
@@ -162,7 +163,7 @@ public class Sintactico extends java_cup.runtime.lr_parser {
      * genera luego del analisis sintáctico.
      */
     public LinkedList<Instruccion> AST;
-    
+    public Arbol arbol;
     /**
      * Método al que se llama automáticamente ante algún error sintactico.
      **/ 
@@ -181,6 +182,10 @@ public class Sintactico extends java_cup.runtime.lr_parser {
         " no reconocido."); 
     }  
         
+    public Arbol getArbol() {
+        return arbol;
+    }
+
     public LinkedList<Instruccion> getAST() {
         return AST;
     }
@@ -234,6 +239,7 @@ class CUP$Sintactico$actions {
 		
                                 parser.AST=a.getInstructions();
                                 Node NODERAIZ = new Node("INIT"); NODERAIZ.addSon(a.getNode());
+                                parser.arbol=new Arbol(NODERAIZ);
                                 
                         
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("ini",0, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
@@ -308,7 +314,7 @@ class CUP$Sintactico$actions {
                                                                 RESULT.addSon("como");
                                                                 RESULT.addSon("cadena");
                                                                 RESULT.addSon("con_valor");
-                                                                RESULT.addSon(b); 
+                                                                RESULT.addSon(b.replace("\"", "")); 
                                                             
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("declaracion",3, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-6)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
@@ -400,7 +406,7 @@ class CUP$Sintactico$actions {
                                                                 RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"asig"));
                                                                 RESULT.addSon(a);
                                                                 RESULT.addSon("->");
-                                                                RESULT.addSon(b); 
+                                                                RESULT.addSon(b.replace("\"", "")); 
                                                                 RESULT.addSon(";");
                                                             
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("declaracion",3, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-3)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);

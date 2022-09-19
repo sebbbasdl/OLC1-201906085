@@ -49,6 +49,7 @@ public class Principal extends javax.swing.JFrame {
         btn_ejecutar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtTradPY = new javax.swing.JTextArea();
+        btn_graficaar = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -80,16 +81,25 @@ public class Principal extends javax.swing.JFrame {
         txtTradPY.setRows(5);
         jScrollPane3.setViewportView(txtTradPY);
 
+        btn_graficaar.setText("Graficar");
+        btn_graficaar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_graficaarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(85, 85, 85)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
                 .addComponent(btnArch)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(58, 58, 58)
                 .addComponent(btn_ejecutar)
-                .addGap(171, 171, 171))
+                .addGap(76, 76, 76)
+                .addComponent(btn_graficaar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(470, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,18 +115,19 @@ public class Principal extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(113, 113, 113)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnArch)
-                    .addComponent(btn_ejecutar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                    .addComponent(btn_ejecutar)
+                    .addComponent(btn_graficaar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(144, Short.MAX_VALUE)
+                    .addContainerGap(323, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(34, 34, 34)))
         );
@@ -161,6 +172,10 @@ public class Principal extends javax.swing.JFrame {
         txtTradGO.setText(a.interpretar(txtprinc1.getText(),"go"));
     }//GEN-LAST:event_btn_ejecutarActionPerformed
 
+    private void btn_graficaarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficaarActionPerformed
+        a.getArbol().graficar();
+    }//GEN-LAST:event_btn_graficaarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -199,6 +214,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnArch;
     private javax.swing.JButton btn_ejecutar;
+    private javax.swing.JButton btn_graficaar;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
