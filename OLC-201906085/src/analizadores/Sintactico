@@ -1,5 +1,13 @@
 package analizadores; 
 import java_cup.runtime.*;
+import Estructuras.Node;
+//import Estructuras.Arbol;
+import Estructuras.Production;
+import Estructuras.Instructions.Declaracion;
+import Estructuras.Instructions.Instruccion;
+
+import java.util.LinkedList;
+
 parser code 
 {:
     /**
@@ -7,7 +15,7 @@ parser code
      * genera luego del analisis sintáctico.
      */
     public LinkedList<Instruccion> AST;
-    public Arbol arbol;
+    
     /**
      * Método al que se llama automáticamente ante algún error sintactico.
      **/ 
@@ -25,55 +33,88 @@ parser code
         (s.left)+ " Columna "+s.right+". Componente " + s.value + 
         " no reconocido."); 
     }  
-    public Arbol getArbol() {
-        return arbol;
-    }
+        
     public LinkedList<Instruccion> getAST() {
         return AST;
     }
 :} 
 
-terminal String PTCOMA,PARIZQ,PARDER,CORIZQ,CORDER;
-terminal String MAS,MENOS,POR,DIVIDIDO;
-terminal String ENTERO;
-terminal String DECIMAL;
-terminal String UMENOS;
-terminal String REVALUAR;
+
 terminal String T_INGRESAR;
 terminal String T_ID;
 terminal String T_COMO;
 terminal String T_STRING;
+terminal String T_INT;
 terminal String T_CADENA;
 terminal String T_CON_VALOR;
+terminal String T_PTCOMA;
+terminal String T_ENTERO;
 
 
 
 non terminal ini;
-non terminal instrucciones;
-non terminal instruccion;
-non terminal Double expresion;
-non terminal declaracion;
+non terminal Production instrucciones;
+non terminal Production instruccion;
+non terminal Production declaracion;
 
-precedence left MAS,MENOS;
-precedence left POR,DIVIDIDO;
-precedence right UMENOS; 
 
 start with ini; 
 
-ini::=instrucciones;
+ini::=instrucciones:a   {:
+                                parser.AST=a.getInstructions();
+                                Node NODERAIZ = new Node("INIT"); NODERAIZ.addSon(a.getNode());
+                                
+                        :}
+
+
+
+;
 
 instrucciones ::= 
-   instrucciones instruccion
- | instruccion
- | error instrucciones
+   instrucciones:a instruccion:b    {:
+                                        RESULT=new Production(new Node("Instrucciones"), a.getInstructions());
+                                        RESULT.addIns(b.getIns());
+                                        RESULT.addSon(a);
+                                        RESULT.addSon(b);
+                                    :}
+ | instruccion :a       {:
+                            RESULT=new Production(new Node("Instrucciones"), new LinkedList<>());
+                            RESULT.addIns(a.getIns());
+                            RESULT.addSon(a);
+                        :}
+ 
 ; 
 
 instruccion ::= 
-    declaracion
+    declaracion:a         {:
+                            RESULT=a;
+
+                        :}
     
 ;
 
 declaracion ::=
-    T_INGRESAR T_ID T_COMO T_STRING T_CADENA T_CON_VALOR
+    T_INGRESAR T_ID:a T_COMO T_STRING T_CON_VALOR T_CADENA:b T_PTCOMA    {: 
+                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"string"));
+                                                                RESULT.addSon("ingresar");
+                                                                RESULT.addSon(a);
+                                                                RESULT.addSon("como");
+                                                                RESULT.addSon("string");
+                                                                RESULT.addSon("con_valor");
+                                                                RESULT.addSon(b); 
+                                                            :}
+
+    |T_INGRESAR T_ID:a T_COMO T_INT T_CON_VALOR T_ENTERO:b  T_PTCOMA   {: 
+                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"int"));
+                                                                RESULT.addSon("ingresar");
+                                                                RESULT.addSon(a);
+                                                                RESULT.addSon("como");
+                                                                RESULT.addSon("int");
+                                                                RESULT.addSon("con_valor");
+                                                                RESULT.addSon(b); 
+                                                                RESULT.addSon(";");
+                                                            :}
+
+
     
 ;

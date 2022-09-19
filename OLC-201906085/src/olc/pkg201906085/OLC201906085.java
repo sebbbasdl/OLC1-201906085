@@ -5,6 +5,7 @@
  */
 package olc.pkg201906085;
 
+import UI.Principal;
 import Utils.Analizador;
 
 
@@ -16,8 +17,7 @@ public class OLC201906085 {
 
     
     public static void main(String[] args) {
-        Analizador an = new Analizador();
-        an.interpretar("C:\\Users\\sebas\\OneDrive\\Documentos\\Prueba.txt");
+        //Analizador an = new Analizador();
         Principal princ = new Principal();
         princ.setVisible(true);
     }

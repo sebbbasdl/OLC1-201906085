@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Estructuras.instrucciones;
-
+package Estructuras.Instructions;
+import Estructuras.Node;
 /**
  *
  * @author sebas
  */
-public interface Instrucciones {
+public interface Instruccion {
+       public String traducirPY();
+       public String traducirGO();
     
 }
