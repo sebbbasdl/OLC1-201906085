@@ -224,7 +224,7 @@ public class Lexico implements java_cup.runtime.Scanner {
 		/* 11 */ YY_NO_ANCHOR,
 		/* 12 */ YY_NO_ANCHOR,
 		/* 13 */ YY_NO_ANCHOR,
-		/* 14 */ YY_NOT_ACCEPT,
+		/* 14 */ YY_NO_ANCHOR,
 		/* 15 */ YY_NO_ANCHOR,
 		/* 16 */ YY_NO_ANCHOR,
 		/* 17 */ YY_NO_ANCHOR,
@@ -237,46 +237,99 @@ public class Lexico implements java_cup.runtime.Scanner {
 		/* 24 */ YY_NO_ANCHOR,
 		/* 25 */ YY_NO_ANCHOR,
 		/* 26 */ YY_NO_ANCHOR,
-		/* 27 */ YY_NO_ANCHOR,
+		/* 27 */ YY_NOT_ACCEPT,
 		/* 28 */ YY_NO_ANCHOR,
 		/* 29 */ YY_NO_ANCHOR,
 		/* 30 */ YY_NO_ANCHOR,
 		/* 31 */ YY_NO_ANCHOR,
-		/* 32 */ YY_NO_ANCHOR,
+		/* 32 */ YY_NOT_ACCEPT,
 		/* 33 */ YY_NO_ANCHOR,
 		/* 34 */ YY_NO_ANCHOR,
-		/* 35 */ YY_NO_ANCHOR,
+		/* 35 */ YY_NOT_ACCEPT,
 		/* 36 */ YY_NO_ANCHOR,
 		/* 37 */ YY_NO_ANCHOR,
-		/* 38 */ YY_NO_ANCHOR,
+		/* 38 */ YY_NOT_ACCEPT,
 		/* 39 */ YY_NO_ANCHOR,
 		/* 40 */ YY_NO_ANCHOR,
-		/* 41 */ YY_NO_ANCHOR
+		/* 41 */ YY_NO_ANCHOR,
+		/* 42 */ YY_NO_ANCHOR,
+		/* 43 */ YY_NO_ANCHOR,
+		/* 44 */ YY_NO_ANCHOR,
+		/* 45 */ YY_NO_ANCHOR,
+		/* 46 */ YY_NO_ANCHOR,
+		/* 47 */ YY_NO_ANCHOR,
+		/* 48 */ YY_NO_ANCHOR,
+		/* 49 */ YY_NO_ANCHOR,
+		/* 50 */ YY_NO_ANCHOR,
+		/* 51 */ YY_NO_ANCHOR,
+		/* 52 */ YY_NO_ANCHOR,
+		/* 53 */ YY_NO_ANCHOR,
+		/* 54 */ YY_NO_ANCHOR,
+		/* 55 */ YY_NO_ANCHOR,
+		/* 56 */ YY_NO_ANCHOR,
+		/* 57 */ YY_NO_ANCHOR,
+		/* 58 */ YY_NO_ANCHOR,
+		/* 59 */ YY_NO_ANCHOR,
+		/* 60 */ YY_NO_ANCHOR,
+		/* 61 */ YY_NO_ANCHOR,
+		/* 62 */ YY_NO_ANCHOR,
+		/* 63 */ YY_NO_ANCHOR,
+		/* 64 */ YY_NO_ANCHOR,
+		/* 65 */ YY_NO_ANCHOR,
+		/* 66 */ YY_NO_ANCHOR,
+		/* 67 */ YY_NO_ANCHOR,
+		/* 68 */ YY_NO_ANCHOR,
+		/* 69 */ YY_NO_ANCHOR,
+		/* 70 */ YY_NO_ANCHOR,
+		/* 71 */ YY_NO_ANCHOR,
+		/* 72 */ YY_NO_ANCHOR,
+		/* 73 */ YY_NO_ANCHOR,
+		/* 74 */ YY_NO_ANCHOR,
+		/* 75 */ YY_NO_ANCHOR,
+		/* 76 */ YY_NO_ANCHOR,
+		/* 77 */ YY_NO_ANCHOR,
+		/* 78 */ YY_NO_ANCHOR,
+		/* 79 */ YY_NO_ANCHOR,
+		/* 80 */ YY_NO_ANCHOR,
+		/* 81 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,65538,
-"21:9,18,17,21:2,18,21:18,18,21,20,21:13,19:10,21,16,21:5,12,22,11,22,4,22,1" +
-"0,22,9,22:2,15,3,1,6,22:2,5,7,8,2,14,22:4,21:4,13,21,12,22,11,22,4,22,10,22" +
-",9,22:2,15,3,1,6,22:2,5,7,8,2,14,22:4,21:54,22,21:17,22,21:31,22,21:7988,22" +
-",21:57319,0:2")[0];
+"34:9,28,27,34:2,28,34:18,31,34,36,35,34:3,33,2,3,6,4,34,5,30,7,29:10,34,1,3" +
+"4:2,8,34:2,17,14,11,22,16,13,23,37,9,37:2,15,21,10,12,37:2,18,24,19,20,26,3" +
+"7:4,34:4,25,34,17,14,11,22,16,13,23,37,9,37:2,15,21,10,12,37:2,18,24,19,20," +
+"26,37:4,34,32,34:52,37,34:17,37,34:31,37,34:7988,37,34:57319,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,42,
-"0,1,2,1:3,3,4,5,6:5,7,8,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25" +
-",26,27,28,29,30,6,31,32")[0];
+	private int yy_rmap[] = unpackFromString(1,82,
+"0,1:5,2,1:3,3,1,4,5,1,6,7,8:10,9,10,11,9,1,12,6,13,14,15,16,15,17,18,19,20," +
+"21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45," +
+"46,47,48,49,50,51,52,53,54,55,56,57,8,58")[0];
 
-	private int yy_nxt[][] = unpackFromString(33,23,
-"1,2,39:5,40,39,41,39,26,39,3,39:2,4,5,6,7,16,3,39,-1:24,39,31,39:13,-1:3,39" +
-",-1:2,39,-1:18,6,-1:23,7,-1:23,14,-1:3,39:15,-1:3,39,-1:2,39,-1,14:19,8,14:" +
-"2,-1,39:5,9,39:9,-1:3,39,-1:2,39,-1,39:5,10,39:9,-1:3,39,-1:2,39,-1,39:9,11" +
-",39:5,-1:3,39,-1:2,39,-1,39:4,12,39:10,-1:3,39,-1:2,39,-1,39:4,13,39:10,-1:" +
-"3,39,-1:2,39,-1,35,39,15,39:12,-1:3,39,-1:2,39,-1,39:4,17,39:10,-1:3,39,-1:" +
-"2,39,-1,18,39:14,-1:3,39,-1:2,39,-1,39:11,19,39:3,-1:3,39,-1:2,39,-1,39:5,2" +
-"0,39:9,-1:3,39,-1:2,39,-1,39:5,21,39:9,-1:3,39,-1:2,39,-1,39:3,22,39:11,-1:" +
-"3,39,-1:2,39,-1,39:8,23,39:6,-1:3,39,-1:2,39,-1,39:6,24,39:8,-1:3,39,-1:2,3" +
-"9,-1,39:14,25,-1:3,39,-1:2,39,-1,39:2,27,39:12,-1:3,39,-1:2,39,-1,39:4,28,3" +
-"9:10,-1:3,39,-1:2,39,-1,39:9,34,39:5,-1:3,39,-1:2,39,-1,39:4,36,39:10,-1:3," +
-"39,-1:2,39,-1,39:12,37,39:2,-1:3,39,-1:2,39,-1,39:3,29,39:11,-1:3,39,-1:2,3" +
-"9,-1,39:13,38,39,-1:3,39,-1:2,39,-1,39:11,30,39:3,-1:3,39,-1:2,39,-1,39:7,3" +
-"2,39:7,-1:3,39,-1:2,39,-1,33,39:14,-1:3,39,-1:2,39");
+	private int yy_nxt[][] = unpackFromString(59,38,
+"1,2,3,4,5,6,7,8,9,10,79,57,80,46,81,80:4,58,80:7,11,12,13,9,12,9,28,9,33,36" +
+",80,-1:46,14,-1:38,80,67,80:16,-1:2,80,-1:7,80,-1:28,12,-1:2,12,-1:35,13,27" +
+",-1:36,15,-1:44,38,-1:10,80:18,-1:2,80,-1:7,80,-1:29,30,-1,30:2,-1:6,32:32," +
+"35,32:4,-1:9,80,17,80:16,-1:2,80,-1:7,80,-1:33,31,-1:13,80:3,18,80:14,-1:2," +
+"80,-1:7,80,-1:33,32,-1:5,38:35,16,38,-1:9,80:7,19,80:10,-1:2,80,-1:7,80,-1:" +
+"9,80:3,20,80:14,-1:2,80,-1:7,80,-1:9,80:3,21,80:14,-1:2,80,-1:7,80,-1:9,80:" +
+"8,22,80:9,-1:2,80,-1:7,80,-1:9,80,23,80:16,-1:2,80,-1:7,80,-1:9,80:9,24,80:" +
+"8,-1:2,80,-1:7,80,-1:9,80:9,25,80:8,-1:2,80,-1:7,80,-1:9,80:9,26,80:8,-1:2," +
+"80,-1:7,80,-1:9,29,80:7,59,80:9,-1:2,80,-1:7,80,-1:9,80,72,80:10,34,80:5,-1" +
+":2,80,-1:7,80,-1:9,80:11,37,80:6,-1:2,80,-1:7,80,-1:9,80:15,37,80:2,-1:2,80" +
+",-1:7,80,-1:9,39,80:17,-1:2,80,-1:7,80,-1:9,80:9,40,80:8,-1:2,80,-1:7,80,-1" +
+":9,80,41,80:16,-1:2,80,-1:7,80,-1:9,80:8,42,80:9,-1:2,80,-1:7,80,-1:9,80:8," +
+"43,80:9,-1:2,80,-1:7,80,-1:9,80:7,44,80:10,-1:2,80,-1:7,80,-1:9,80:3,45,80:" +
+"14,-1:2,80,-1:7,80,-1:9,80:3,47,80:4,69,80:9,-1:2,80,-1:7,80,-1:9,80:9,48,8" +
+"0:8,-1:2,80,-1:7,80,-1:9,80:6,49,80:11,-1:2,80,-1:7,80,-1:9,80:2,50,80:15,-" +
+"1:2,80,-1:7,80,-1:9,80:7,51,80:10,-1:2,80,-1:7,80,-1:9,80:7,52,80:10,-1:2,8" +
+"0,-1:7,80,-1:9,80:7,53,80:10,-1:2,80,-1:7,80,-1:9,80:15,54,80:2,-1:2,80,-1:" +
+"7,80,-1:9,80:10,55,80:7,-1:2,80,-1:7,80,-1:9,80:6,56,80:11,-1:2,80,-1:7,80," +
+"-1:9,60,80:13,71,80:3,-1:2,80,-1:7,80,-1:9,80:12,61,80:5,-1:2,80,-1:7,80,-1" +
+":9,80:9,73,80:3,62,80:4,-1:2,80,-1:7,80,-1:9,80:3,74,80:14,-1:2,80,-1:7,80," +
+"-1:9,80:9,75,80:8,-1:2,80,-1:7,80,-1:9,80:16,76,80,-1:2,80,-1:7,80,-1:9,80:" +
+"8,77,80:9,-1:2,80,-1:7,80,-1:9,80:6,63,80:11,-1:2,80,-1:7,80,-1:9,80:7,64,8" +
+"0:10,-1:2,80,-1:7,80,-1:9,80:17,78,-1:2,80,-1:7,80,-1:9,80:2,65,80:15,-1:2," +
+"80,-1:7,80,-1:9,80:8,66,80:9,-1:2,80,-1:7,80,-1:9,80:11,68,80:6,-1:2,80,-1:" +
+"7,80,-1:9,80:3,70,80:14,-1:2,80,-1:7,80");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
@@ -327,113 +380,113 @@ public class Lexico implements java_cup.runtime.Scanner {
 					case -2:
 						break;
 					case 2:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+						{return new Symbol(sym.PTCOMA,yyline,yychar, yytext());}
 					case -3:
 						break;
 					case 3:
-						{
-    System.out.println("Este es un error lexico: "+yytext()+
-    ", en la linea: "+yyline+", en la columna: "+yychar);
-}
+						{return new Symbol(sym.PARIZQ,yyline,yychar, yytext());}
 					case -4:
 						break;
 					case 4:
-						{return new Symbol(sym.T_PTCOMA,yyline,yychar, yytext());}
+						{return new Symbol(sym.PARDER,yyline,yychar, yytext());}
 					case -5:
 						break;
 					case 5:
-						{yychar=1;}
+						{return new Symbol(sym.MAS,yyline,yychar, yytext());}
 					case -6:
 						break;
 					case 6:
-						{}
+						{return new Symbol(sym.MENOS,yyline,yychar, yytext());}
 					case -7:
 						break;
 					case 7:
-						{return new Symbol(sym.T_ENTERO,yyline,yychar,yytext());}
+						{return new Symbol(sym.POR,yyline,yychar, yytext());}
 					case -8:
 						break;
 					case 8:
-						{return new Symbol(sym.T_CADENA,yyline,yychar,yytext());}
+						{return new Symbol(sym.DIVIDIDO,yyline,yychar, yytext());}
 					case -9:
 						break;
 					case 9:
-						{return new Symbol(sym.T_COMO,yyline,yychar, yytext());}
-					case -10:
-						break;
-					case 10:
-						{return new Symbol(sym.T_INT,yyline,yychar, yytext());}
-					case -11:
-						break;
-					case 11:
-						{return new Symbol(sym.T_STRING,yyline,yychar, yytext());}
-					case -12:
-						break;
-					case 12:
-						{return new Symbol(sym.T_INGRESAR,yyline,yychar,yytext());}
-					case -13:
-						break;
-					case 13:
-						{return new Symbol(sym.T_CON_VALOR,yyline,yychar, yytext());}
-					case -14:
-						break;
-					case 15:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
-					case -15:
-						break;
-					case 16:
 						{
     System.out.println("Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar);
 }
+					case -10:
+						break;
+					case 10:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -11:
+						break;
+					case 11:
+						{yychar=1;}
+					case -12:
+						break;
+					case 12:
+						{}
+					case -13:
+						break;
+					case 13:
+						{return new Symbol(sym.T_FLOAT,yyline,yychar,yytext());}
+					case -14:
+						break;
+					case 14:
+						{return new Symbol(sym.T_ASIG,yyline,yychar, yytext());}
+					case -15:
+						break;
+					case 15:
+						{return new Symbol(sym.T_CHAR,yyline,yychar,yytext());}
 					case -16:
 						break;
-					case 17:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 16:
+						{return new Symbol(sym.T_CADENA,yyline,yychar,yytext());}
 					case -17:
 						break;
-					case 18:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 17:
+						{return new Symbol(sym.T_FIN,yyline,yychar, yytext());}
 					case -18:
 						break;
-					case 19:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 18:
+						{return new Symbol(sym.T_COMO,yyline,yychar, yytext());}
 					case -19:
 						break;
-					case 20:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 19:
+						{return new Symbol(sym.T_VALOR_BOOL,yyline,yychar,yytext());}
 					case -20:
 						break;
-					case 21:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 20:
+						{return new Symbol(sym.T_INICIO,yyline,yychar, yytext());}
 					case -21:
 						break;
-					case 22:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 21:
+						{return new Symbol(sym.T_INT,yyline,yychar, yytext());}
 					case -22:
 						break;
-					case 23:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 22:
+						{return new Symbol(sym.T_STRING,yyline,yychar, yytext());}
 					case -23:
 						break;
-					case 24:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 23:
+						{return new Symbol(sym.T_BOOLEAN,yyline,yychar, yytext());}
 					case -24:
 						break;
-					case 25:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 24:
+						{return new Symbol(sym.T_INGRESAR,yyline,yychar,yytext());}
 					case -25:
 						break;
-					case 26:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 25:
+						{return new Symbol(sym.T_CARACTER,yyline,yychar, yytext());}
 					case -26:
 						break;
-					case 27:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case 26:
+						{return new Symbol(sym.T_CON_VALOR,yyline,yychar, yytext());}
 					case -27:
 						break;
 					case 28:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+						{
+    System.out.println("Este es un error lexico: "+yytext()+
+    ", en la linea: "+yyline+", en la columna: "+yychar);
+}
 					case -28:
 						break;
 					case 29:
@@ -441,52 +494,206 @@ public class Lexico implements java_cup.runtime.Scanner {
 					case -29:
 						break;
 					case 30:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+						{return new Symbol(sym.T_FLOAT,yyline,yychar,yytext());}
 					case -30:
 						break;
 					case 31:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+						{return new Symbol(sym.T_CHAR,yyline,yychar,yytext());}
 					case -31:
 						break;
-					case 32:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
-					case -32:
-						break;
 					case 33:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
-					case -33:
+						{
+    System.out.println("Este es un error lexico: "+yytext()+
+    ", en la linea: "+yyline+", en la columna: "+yychar);
+}
+					case -32:
 						break;
 					case 34:
 						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
-					case -34:
-						break;
-					case 35:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
-					case -35:
+					case -33:
 						break;
 					case 36:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
-					case -36:
+						{
+    System.out.println("Este es un error lexico: "+yytext()+
+    ", en la linea: "+yyline+", en la columna: "+yychar);
+}
+					case -34:
 						break;
 					case 37:
 						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
-					case -37:
-						break;
-					case 38:
-						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
-					case -38:
+					case -35:
 						break;
 					case 39:
 						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
-					case -39:
+					case -36:
 						break;
 					case 40:
 						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
-					case -40:
+					case -37:
 						break;
 					case 41:
 						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -38:
+						break;
+					case 42:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -39:
+						break;
+					case 43:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -40:
+						break;
+					case 44:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
 					case -41:
+						break;
+					case 45:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -42:
+						break;
+					case 46:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -43:
+						break;
+					case 47:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -44:
+						break;
+					case 48:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -45:
+						break;
+					case 49:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -46:
+						break;
+					case 50:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -47:
+						break;
+					case 51:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -48:
+						break;
+					case 52:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -49:
+						break;
+					case 53:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -50:
+						break;
+					case 54:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -51:
+						break;
+					case 55:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -52:
+						break;
+					case 56:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -53:
+						break;
+					case 57:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -54:
+						break;
+					case 58:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -55:
+						break;
+					case 59:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -56:
+						break;
+					case 60:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -57:
+						break;
+					case 61:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -58:
+						break;
+					case 62:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -59:
+						break;
+					case 63:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -60:
+						break;
+					case 64:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -61:
+						break;
+					case 65:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -62:
+						break;
+					case 66:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -63:
+						break;
+					case 67:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -64:
+						break;
+					case 68:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -65:
+						break;
+					case 69:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -66:
+						break;
+					case 70:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -67:
+						break;
+					case 71:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -68:
+						break;
+					case 72:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -69:
+						break;
+					case 73:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -70:
+						break;
+					case 74:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -71:
+						break;
+					case 75:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -72:
+						break;
+					case 76:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -73:
+						break;
+					case 77:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -74:
+						break;
+					case 78:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -75:
+						break;
+					case 79:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -76:
+						break;
+					case 80:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -77:
+						break;
+					case 81:
+						{return new Symbol(sym.T_ID,yyline,yychar,yytext());}
+					case -78:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);

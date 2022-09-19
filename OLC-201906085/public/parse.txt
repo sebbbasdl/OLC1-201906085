@@ -1,1 +1,10 @@
- ingresar flag como string con_valor "hola";
+ inicio
+ingresar varca como cadena con_valor "hola";
+ingresar varint como numero con_valor 100;
+ingresar carchar como caracter con_valor 'c';
+ingresar flag como boolean con_valor true;
+ingresar deci como numero con_valor 5.2;
+
+deci->6.5;
+
+fin

@@ -19,15 +19,33 @@ BLANCOS=[ \r\t]+
 D=[0-9]+
 DD=[0-9]+("."[  |0-9]+)?
 cadena= (\"[^\"]*\")|(\"[^\"]*\"(\"[^\"]*\")*)
-id=[a-zA-ZñÑ][a-zA-Z0-9_ñÑ]*
+id=[a-zA-Z_ñÑ][a-zA-Z0-9_ñÑ]*
+char= (\'[^\']\')|(\'\'\'\')|("#"{D})
+bool ="true"|"false"
 
 %%
+";"                 {return new Symbol(sym.PTCOMA,yyline,yychar, yytext());} 
+"("                 {return new Symbol(sym.PARIZQ,yyline,yychar, yytext());} 
+")"                 {return new Symbol(sym.PARDER,yyline,yychar, yytext());} 
+
+
+"+"                 {return new Symbol(sym.MAS,yyline,yychar, yytext());} 
+"-"                 {return new Symbol(sym.MENOS,yyline,yychar, yytext());} 
+"*"                 {return new Symbol(sym.POR,yyline,yychar, yytext());} 
+"/"                 {return new Symbol(sym.DIVIDIDO,yyline,yychar, yytext());} 
+
+"->"                {return new Symbol(sym.T_ASIG,yyline,yychar, yytext());}
+"inicio"            {return new Symbol(sym.T_INICIO,yyline,yychar, yytext());}
+"fin"               {return new Symbol(sym.T_FIN,yyline,yychar, yytext());}
+"boolean"           {return new Symbol(sym.T_BOOLEAN,yyline,yychar, yytext());}
+"caracter"          {return new Symbol(sym.T_CARACTER,yyline,yychar, yytext());}
 "numero"            {return new Symbol(sym.T_INT,yyline,yychar, yytext());}
-"string"            {return new Symbol(sym.T_STRING,yyline,yychar, yytext());}
+"cadena"            {return new Symbol(sym.T_STRING,yyline,yychar, yytext());}
 "como"              {return new Symbol(sym.T_COMO,yyline,yychar, yytext());}
 "ingresar"          {return new Symbol(sym.T_INGRESAR,yyline,yychar,yytext());}
 "con_valor"         {return new Symbol(sym.T_CON_VALOR,yyline,yychar, yytext());}
-";"                 {return new Symbol(sym.T_PTCOMA,yyline,yychar, yytext());}
+
+
 
 
 
@@ -39,7 +57,10 @@ id=[a-zA-ZñÑ][a-zA-Z0-9_ñÑ]*
 \n {yychar=1;}
 
 {BLANCOS} {}  
+{DD}                 {return new Symbol(sym.T_FLOAT,yyline,yychar,yytext());}
 {D}                 {return new Symbol(sym.T_ENTERO,yyline,yychar,yytext());}
+{bool}              {return new Symbol(sym.T_VALOR_BOOL,yyline,yychar,yytext());}
+{char}              {return new Symbol(sym.T_CHAR,yyline,yychar,yytext());}
 {cadena}            {return new Symbol(sym.T_CADENA,yyline,yychar,yytext());}
 {id}                {return new Symbol(sym.T_ID,yyline,yychar,yytext());}
 
