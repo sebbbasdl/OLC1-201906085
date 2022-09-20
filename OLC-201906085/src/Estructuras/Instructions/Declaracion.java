@@ -18,24 +18,36 @@ public class Declaracion implements Instruccion{
     
     private Object tipo;
     
+    private Object conta;
+    
     private Operacion val;
     
     
-    public Declaracion(String a, String valor,String tipo){  
+    public Declaracion(String a, String valor,String tipo,int conta){  
         this.id=a;
         this.valor=valor;
         this.tipo=tipo;
+        this.conta=conta;
         
         
     }
     
-    public Declaracion(String a, Operacion val,String tipo){  
+    public Declaracion(String a, Operacion val,String tipo,int conta){  
         this.id=a;
         this.val=val;
         this.tipo=tipo;
+        this.conta=conta;
         
     }
-    
+    public String iden(int conta){
+        System.out.println("SOYY CONTA"+conta);
+        String str_iden="";
+        
+        for (int i = 1; i <= conta; i++) {
+            str_iden+="\t";
+        }
+        return  str_iden;
+    }
     
     
     @Override
@@ -70,25 +82,32 @@ public class Declaracion implements Instruccion{
         
         if(tipo=="string"){
             //System.out.println("String "+this.id.toString()+"= "+this.valor.toString());
-            aux= this.id.toString()+"= "+this.valor.toString()+"\n" ;
+            System.out.println("string"+this.conta);
+            aux= iden((int) this.conta)+this.id.toString()+"= "+this.valor.toString()+"\n" ;
         }else if(tipo=="int" && flag_int==true){
+            System.out.println(this.conta);
             //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
-            aux= this.id.toString()+"= "+val.traducirPY()+"\n" ;
+            aux= iden((int) this.conta)+this.id.toString()+"= "+val.traducirPY()+"\n" ;
         }else if(tipo=="char"){
+            System.out.println("char"+this.conta);
             //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
-            aux= this.id.toString()+"= "+this.valor.toString()+"\n" ;
+            aux= iden((int) this.conta)+this.id.toString()+"= "+this.valor.toString()+"\n" ;
         }else if(tipo=="bool"){
+            System.out.println(this.conta);
             //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
-            aux= this.id.toString()+"= "+this.valor.toString()+"\n" ;
+            aux= iden((int) this.conta)+this.id.toString()+"= "+this.valor.toString()+"\n" ;
         }else if(tipo=="int"&& flag_float==true){
+            System.out.println(this.conta);
             //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
-            aux= this.id.toString()+"= "+val.traducirPY()+"\n" ;
+            aux= iden((int) this.conta)+this.id.toString()+"= "+val.traducirPY()+"\n" ;
         }else if(tipo=="asig" && this.val!=null){
+            System.out.println(this.conta);
             //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
-            aux= this.id.toString()+" = "+val.traducirPY()+"\n" ;
+            aux=iden((int) this.conta)+ this.id.toString()+" = "+val.traducirPY()+"\n" ;
         }else if(tipo=="asig" && this.val==null){
+            System.out.println(this.conta);
             //System.out.println("Int "+this.id.toString()+"= "+this.valor.toString());
-            aux= this.id.toString()+" = "+this.valor.toString()+"\n" ;
+            aux= iden((int) this.conta)+this.id.toString()+" = "+this.valor.toString()+"\n" ;
         }
         
         

@@ -4,14 +4,19 @@
  * and open the template in the editor.
  */
 package Estructuras.Instructions;
-import Estructuras.Node;
+
 /**
  *
  * @author sebas
  */
-public interface Instruccion {
-       public String traducirPY();
-       public String traducirGO();
-   
-    
+public class Identacion {
+    public static String iden(int conta){
+        
+        String str_iden="";
+        
+        for (int i = 0; i <= conta; i++) {
+            str_iden+="\t";
+        }
+        return  str_iden;
+    }
 }

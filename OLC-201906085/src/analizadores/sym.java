@@ -8,32 +8,45 @@ package analizadores;
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int MENOS = 22;
-  public static final int T_CARACTER = 10;
-  public static final int T_INT = 6;
+  public static final int MENQUE = 27;
   public static final int T_FLOAT = 14;
-  public static final int DIVIDIDO = 24;
-  public static final int PARIZQ = 19;
-  public static final int PARDER = 20;
-  public static final int T_INICIO = 15;
-  public static final int UMENOS = 25;
-  public static final int POR = 23;
-  public static final int T_ID = 3;
-  public static final int T_VALOR_BOOL = 13;
-  public static final int EOF = 0;
-  public static final int T_ENTERO = 9;
-  public static final int T_INGRESAR = 2;
-  public static final int T_ASIG = 17;
-  public static final int error = 1;
-  public static final int T_STRING = 5;
-  public static final int T_BOOLEAN = 12;
   public static final int T_CON_VALOR = 8;
+  public static final int POR = 25;
+  public static final int T_ENTONCES = 33;
+  public static final int T_FIN_SI = 34;
+  public static final int T_VALOR_BOOL = 13;
+  public static final int T_INT = 6;
+  public static final int T_CARACTER = 10;
+  public static final int T_DIFE = 38;
+  public static final int LLAVIZQ = 21;
   public static final int T_FIN = 16;
+  public static final int DIVIDIDO = 26;
+  public static final int T_MNIG = 36;
   public static final int T_CADENA = 7;
-  public static final int MAS = 21;
+  public static final int UMENOS = 30;
   public static final int T_CHAR = 11;
-  public static final int PTCOMA = 18;
+  public static final int EOF = 0;
+  public static final int PARIZQ = 19;
+  public static final int error = 1;
+  public static final int T_IGUAL = 37;
+  public static final int MENOS = 24;
+  public static final int T_SI = 29;
+  public static final int MAYQUE = 28;
+  public static final int T_INGRESAR = 2;
+  public static final int T_STRING = 5;
+  public static final int LLAVDER = 22;
+  public static final int T_INICIO = 15;
+  public static final int T_BOOLEAN = 12;
   public static final int T_COMO = 4;
+  public static final int T_CONTRARIO = 31;
+  public static final int PTCOMA = 18;
+  public static final int T_ASIG = 17;
+  public static final int PARDER = 20;
+  public static final int T_O_SI = 32;
+  public static final int T_ID = 3;
+  public static final int T_ENTERO = 9;
+  public static final int T_MAYIG = 35;
+  public static final int MAS = 23;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -56,11 +69,24 @@ public class sym {
   "PTCOMA",
   "PARIZQ",
   "PARDER",
+  "LLAVIZQ",
+  "LLAVDER",
   "MAS",
   "MENOS",
   "POR",
   "DIVIDIDO",
-  "UMENOS"
+  "MENQUE",
+  "MAYQUE",
+  "T_SI",
+  "UMENOS",
+  "T_CONTRARIO",
+  "T_O_SI",
+  "T_ENTONCES",
+  "T_FIN_SI",
+  "T_MAYIG",
+  "T_MNIG",
+  "T_IGUAL",
+  "T_DIFE"
   };
 }
 

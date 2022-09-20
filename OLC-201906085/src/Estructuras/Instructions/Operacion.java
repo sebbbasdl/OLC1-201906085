@@ -20,7 +20,11 @@ public class Operacion implements Instruccion{
         CADENA,
         MAYOR_QUE,
         MENOR_QUE,
-        CONCATENACION
+        CONCATENACION,
+        MAYIG,
+        MNIG,
+        ES_IGUAL,
+        ES_DIFERENTE
     }
     /**
      * Tipo de operación a ejecutar.
@@ -34,6 +38,8 @@ public class Operacion implements Instruccion{
      * Operador derecho de la operación.
      */
     private Operacion operadorDer;
+    
+    private Object id;
     /**
      * Valor específico si se tratara de una literal, es decir un número o una 
      * cadena.
@@ -50,6 +56,12 @@ public class Operacion implements Instruccion{
     public Operacion(Operacion operadorIzq, Operacion operadorDer, Tipo_operacion tipo) {
         this.tipo = tipo;
         this.operadorIzq = operadorIzq;
+        this.operadorDer = operadorDer;
+    }
+    
+    public Operacion(String id, Operacion operadorDer, Tipo_operacion tipo) {
+        this.tipo = tipo;
+        this.id=id;
         this.operadorDer = operadorDer;
     }
     /**
@@ -101,11 +113,19 @@ public class Operacion implements Instruccion{
         }
         /* ======== OPERACIONES RELACIONALES ======== */
         else if(tipo== Tipo_operacion.MAYOR_QUE){
-            return operadorIzq.traducirPY()+ ">" + operadorDer.traducirPY();
+            return this.id.toString()+ ">" + operadorDer.traducirPY();
         }else if(tipo== Tipo_operacion.MENOR_QUE){
-            return operadorIzq.traducirPY()+ "<" +operadorDer.traducirPY();
+            return this.id.toString()+ "<" +operadorDer.traducirPY();
         }else if(tipo== Tipo_operacion.CONCATENACION){
             return operadorIzq.traducirPY().toString() +"+"+operadorDer.traducirPY().toString();
+        }else if(tipo== Tipo_operacion.MAYIG){
+            return  this.id.toString()+ ">=" +operadorDer.traducirPY();
+        }else if(tipo== Tipo_operacion.MNIG){
+            return  this.id.toString()+ "<=" +operadorDer.traducirPY();
+        }else if(tipo== Tipo_operacion.ES_IGUAL){
+            return  this.id.toString()+ "==" +operadorDer.traducirPY();
+        }else if(tipo== Tipo_operacion.ES_DIFERENTE){
+            return  this.id.toString()+ "!=" +operadorDer.traducirPY();
         }else{
             return "";
         }
@@ -138,11 +158,19 @@ public class Operacion implements Instruccion{
         }
         /* ======== OPERACIONES RELACIONALES ======== */
         else if(tipo== Tipo_operacion.MAYOR_QUE){
-            return operadorIzq.traducirGO()+ ">" + operadorDer.traducirGO();
+            return this.id.toString()+ ">" + operadorDer.traducirGO();
         }else if(tipo== Tipo_operacion.MENOR_QUE){
-            return operadorIzq.traducirGO()+ "<" +operadorDer.traducirGO();
+            return this.id.toString()+ "<" +operadorDer.traducirGO();
         }else if(tipo== Tipo_operacion.CONCATENACION){
             return operadorIzq.traducirGO().toString() +"+"+operadorDer.traducirGO().toString();
+        }else if(tipo== Tipo_operacion.MAYIG){
+            return  this.id.toString()+ ">=" +operadorDer.traducirGO();
+        }else if(tipo== Tipo_operacion.MNIG){
+            return  this.id.toString()+ "<=" +operadorDer.traducirGO();
+        }else if(tipo== Tipo_operacion.ES_IGUAL){
+            return  this.id.toString()+ "==" +operadorDer.traducirGO();
+        }else if(tipo== Tipo_operacion.ES_DIFERENTE){
+            return  this.id.toString()+ "!=" +operadorDer.traducirGO();
         }else{
             return "";
         }

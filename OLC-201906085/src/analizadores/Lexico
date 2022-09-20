@@ -31,9 +31,19 @@ comentarioUno=//([a-zA-Z_ñÑ]|[ \r\t]|[0-9]+|.|_|-|\"|\*|=|\+|-|/|#|%|&|\?|¡|�
 
 
 %%
+"mayor"                 {return new Symbol(sym.MAYQUE,yyline,yychar, yytext());} 
+"menor"                 {return new Symbol(sym.MENQUE,yyline,yychar, yytext());}
+"mayor_igual"                 {return new Symbol(sym.T_MAYIG,yyline,yychar, yytext());} 
+"menor_igual"                 {return new Symbol(sym.T_MNIG,yyline,yychar, yytext());}
+"es_igual"                 {return new Symbol(sym.T_IGUAL,yyline,yychar, yytext());}
+"es_diferente"                 {return new Symbol(sym.T_DIFE,yyline,yychar, yytext());}
+
+
 ";"                 {return new Symbol(sym.PTCOMA,yyline,yychar, yytext());} 
 "("                 {return new Symbol(sym.PARIZQ,yyline,yychar, yytext());} 
 ")"                 {return new Symbol(sym.PARDER,yyline,yychar, yytext());} 
+"{"                 {return new Symbol(sym.LLAVIZQ,yyline,yychar, yytext());} 
+"}"                 {return new Symbol(sym.LLAVDER,yyline,yychar, yytext());} 
 
 
 "+"                 {return new Symbol(sym.MAS,yyline,yychar, yytext());} 
@@ -51,6 +61,11 @@ comentarioUno=//([a-zA-Z_ñÑ]|[ \r\t]|[0-9]+|.|_|-|\"|\*|=|\+|-|/|#|%|&|\?|¡|�
 "como"              {return new Symbol(sym.T_COMO,yyline,yychar, yytext());}
 "ingresar"          {return new Symbol(sym.T_INGRESAR,yyline,yychar,yytext());}
 "con_valor"         {return new Symbol(sym.T_CON_VALOR,yyline,yychar, yytext());}
+"si"                {return new Symbol(sym.T_SI,yyline,yychar, yytext());}
+"o_si"                {return new Symbol(sym.T_O_SI,yyline,yychar, yytext());}
+"de_lo_contrario"                {return new Symbol(sym.T_CONTRARIO,yyline,yychar, yytext());}
+"entonces"          {return new Symbol(sym.T_ENTONCES,yyline,yychar, yytext());}
+"fin_si"            {return new Symbol(sym.T_FIN_SI,yyline,yychar, yytext());}
 
 
 

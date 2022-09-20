@@ -56,11 +56,11 @@ public class Analizador {
             if(ins!=null)
                 if(trad=="py"){
                     traduccion += ins.traducirPY();
-                    System.out.println(ins);
+                    System.out.println(traduccion);
                 }else if(trad=="go"){
                 
                     traduccion += ins.traducirGO();
-                    System.out.println(ins);
+                    System.out.println(traduccion);
                 }
         }
         

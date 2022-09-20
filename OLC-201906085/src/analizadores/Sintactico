@@ -6,6 +6,8 @@ import Estructuras.Production;
 import Estructuras.Instructions.Declaracion;
 import Estructuras.Instructions.Operacion;
 import Estructuras.Instructions.Instruccion;
+import Estructuras.Instructions.Identacion;
+import Estructuras.Instructions.If;
 
 import java.util.LinkedList;
 
@@ -17,6 +19,7 @@ parser code
      */
     public LinkedList<Instruccion> AST;
     public Arbol arbol;
+    int iden;
     /**
      * Método al que se llama automáticamente ante algún error sintactico.
      **/ 
@@ -42,6 +45,18 @@ parser code
     public LinkedList<Instruccion> getAST() {
         return AST;
     }
+    
+    public void masIden(){
+        iden++;
+    }
+    public void menosIden(){
+        iden--;
+    }
+
+    public int getIden(){
+        return this.iden;
+    }
+
 :} 
 
 
@@ -61,9 +76,16 @@ terminal String T_FLOAT;
 terminal String T_INICIO;
 terminal String T_FIN;
 terminal String T_ASIG;
-terminal String PTCOMA,PARIZQ,PARDER;
+terminal String PTCOMA,PARIZQ,PARDER,LLAVIZQ,LLAVDER;
 terminal String MAS,MENOS,POR,DIVIDIDO;
+terminal String MENQUE,MAYQUE;
+terminal String T_SI;
 terminal String UMENOS;
+terminal String T_CONTRARIO;
+terminal String T_O_SI;
+terminal String T_ENTONCES;
+terminal String T_FIN_SI;
+terminal String T_MAYIG,T_MNIG,T_IGUAL,T_DIFE;
 
 
 
@@ -73,6 +95,9 @@ non terminal Production instrucciones;
 non terminal Production instruccion;
 non terminal Production declaracion;
 non terminal Production expresion;
+non terminal Production expresion_relacional;
+non terminal Production else_ifs;
+non terminal Production if;
 
 precedence left MAS,MENOS;
 precedence left POR,DIVIDIDO;
@@ -85,6 +110,8 @@ ini::=T_INICIO instrucciones:a T_FIN  {:
                                 parser.AST=a.getInstructions();
                                 Node NODERAIZ = new Node("INIT"); NODERAIZ.addSon(a.getNode());
                                 parser.arbol=new Arbol(NODERAIZ);
+                                //menosIden();
+                                
                                 
                         :}
 
@@ -98,11 +125,23 @@ instrucciones ::=
                                         RESULT.addIns(b.getIns());
                                         RESULT.addSon(a);
                                         RESULT.addSon(b);
+                                        
+                                        //masIden();
+                                        System.out.println("ESTOY ACA INSTRUCCIONES INSTRUCCION"+getIden());
+                                        
                                     :}
  | instruccion :a       {:
                             RESULT=new Production(new Node("Instrucciones"), new LinkedList<>());
                             RESULT.addIns(a.getIns());
                             RESULT.addSon(a);
+                            /*if(getIden()==0){
+                                System.out.println("ESTOY ACAAAAAAAAAAAAAAAAAAAAA");
+                            }else{
+                                menosIden();
+                            }*/
+                            
+                            
+                            
                         :}
 
  
@@ -113,12 +152,19 @@ instruccion ::=
                             RESULT=a;
 
                         :}
+    |if:a         {:
+                            RESULT=a;
+                            menosIden();
+                            System.out.println("ESTOY IF "+getIden());
+
+                        :}
     
 ;
 
 declaracion ::=
     T_INGRESAR T_ID:a T_COMO T_STRING T_CON_VALOR T_CADENA:b PTCOMA    {: 
-                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"string"));
+                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"string",getIden()));
+                                                                //masIden();
                                                                 RESULT.addSon("ingresar");
                                                                 RESULT.addSon(a);
                                                                 RESULT.addSon("como");
@@ -128,7 +174,7 @@ declaracion ::=
                                                             :}
 
     |T_INGRESAR T_ID:a T_COMO T_INT T_CON_VALOR expresion:b  PTCOMA   {: 
-                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,(Operacion)b.getIns(),"int"));
+                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,(Operacion)b.getIns(),"int",getIden()));
                                                                 RESULT.addSon("ingresar");
                                                                 RESULT.addSon(a);
                                                                 RESULT.addSon("como");
@@ -139,7 +185,7 @@ declaracion ::=
                                                             :}
 
     |T_INGRESAR T_ID:a T_COMO T_CARACTER T_CON_VALOR T_CHAR:b  PTCOMA   {: 
-                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"char"));
+                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"char",getIden()));
                                                                 RESULT.addSon("ingresar");
                                                                 RESULT.addSon(a);
                                                                 RESULT.addSon("como");
@@ -150,7 +196,7 @@ declaracion ::=
                                                             :}
 
     |T_INGRESAR T_ID:a T_COMO T_BOOLEAN T_CON_VALOR T_VALOR_BOOL:b  PTCOMA   {: 
-                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"bool"));
+                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"bool",getIden()));
                                                                 RESULT.addSon("ingresar");
                                                                 RESULT.addSon(a);
                                                                 RESULT.addSon("como");
@@ -164,7 +210,7 @@ declaracion ::=
                                                             
                                                            
     |T_ID:a T_ASIG T_CADENA:b  PTCOMA   {: 
-                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"asig"));
+                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"asig",getIden()));
                                                                 RESULT.addSon(a);
                                                                 RESULT.addSon("->");
                                                                 RESULT.addSon(b.replace("\"", "")); 
@@ -174,7 +220,7 @@ declaracion ::=
                                                             
                                                            
     |T_ID:a T_ASIG expresion:b  PTCOMA   {: 
-                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,(Operacion)b.getIns(),"asig"));
+                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,(Operacion)b.getIns(),"asig",getIden()));
                                                                 RESULT.addSon(a);
                                                                 RESULT.addSon("->");
                                                                 RESULT.addSon(b); 
@@ -184,7 +230,7 @@ declaracion ::=
                                                             
                                                            
     |T_ID:a T_ASIG T_CHAR:b  PTCOMA   {: 
-                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"asig"));
+                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"asig",getIden()));
                                                                 RESULT.addSon(a);
                                                                 RESULT.addSon("->");
                                                                 RESULT.addSon(b); 
@@ -194,7 +240,7 @@ declaracion ::=
                                                             
                                                            
     |T_ID:a T_ASIG T_VALOR_BOOL:b  PTCOMA   {: 
-                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"asig"));
+                                                                RESULT = new Production(new Node("Declaracion"),  new Declaracion(a,b,"asig",getIden()));
                                                                 RESULT.addSon(a);
                                                                 RESULT.addSon("->");
                                                                 RESULT.addSon(b); 
@@ -203,6 +249,86 @@ declaracion ::=
                                                            
                                                              
                                                                 
+;
+
+if ::=
+
+ T_SI expresion_relacional:a   instrucciones:b T_FIN_SI                                                     {:
+                                                                                                                                RESULT=new Production(new Node("Instruccion"), new If((Operacion)a.getIns(), b.getInstructions(),getIden()));
+                                                                                                                                //masIden();
+                                                                                                                                RESULT.addSon("si");
+                                                                                                                                
+                                                                                                                                RESULT.addSon(a);
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                RESULT.addSon(b);
+                                                                                                                                RESULT.addSon("fin_si");
+                                                                                                                                
+                                                                                                                                
+                                                                                                                            :} 
+ | T_SI  expresion_relacional:a  instrucciones:b  else_ifs:l T_CONTRARIO instrucciones:c T_FIN_SI    {:  
+                                                                                                                                RESULT=new Production(new Node("Instruccion"), new If((Operacion)a.getIns(),b.getInstructions(),l.getInstructions(),c.getInstructions(),getIden()));
+                                                                                                                                RESULT.addSon("si");
+                                                                                                                                
+                                                                                                                                RESULT.addSon(a);
+                                                                                                                              
+                                                                                                                                
+                                                                                                                                RESULT.addSon(b);
+                                                                                                                                
+                                                                                                                                RESULT.addSon(l);
+                                                                                                                                RESULT.addSon("de_lo_contrario");
+                                                                                                                                
+                                                                                                                                RESULT.addSon(c);
+                                                                                                                                RESULT.addSon("fin_si");
+                                                                                                                                //masIden();
+                                                                                                                            :}
+
+
+
+ | T_SI  expresion_relacional:a   instrucciones:b   T_CONTRARIO  instrucciones:c T_FIN_SI    {:  
+                                                                                                                                RESULT=new Production(new Node("Instruccion"), new If((Operacion)a.getIns(),b.getInstructions(),c.getInstructions(),getIden()));
+                                                                                                                                RESULT.addSon("si");
+                                                                                                                                
+                                                                                                                                RESULT.addSon(a);
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                RESULT.addSon(b);
+                                                                                                                                
+                                                                                                                                RESULT.addSon("de_lo_contrario");
+                                                                                                                                
+                                                                                                                                RESULT.addSon(c);
+                                                                                                                                RESULT.addSon("fin_si");
+                                                                                                                                //masIden();
+                                                                                                                            :}
+
+
+
+;
+
+
+else_ifs ::= 
+    else_ifs:l T_O_SI expresion_relacional:a  T_ENTONCES instrucciones:b                                 {:                                                                                                                                
+                                                                                                                                RESULT=new Production(new Node("ELSE_IFS"), l.getInstructions());
+                                                                                                                                RESULT.addIns(new If((Operacion)a.getIns(), b.getInstructions(),getIden()));
+                                                                                                                                RESULT.addSon(l);
+                                                                                                                                RESULT.addSon("o_si");
+                                                                                                                                
+                                                                                                                                RESULT.addSon(a);
+                                                                                                                                
+                                                                                                                                RESULT.addSon("entonces");
+                                                                                                                                RESULT.addSon(b);
+                                                                                                                                
+                                                                                                                            :}
+  | T_O_SI  expresion_relacional:a T_ENTONCES instrucciones:b                                              {:  
+                                                                                                                                RESULT=new Production(new Node("ELSE_IFS"), new LinkedList<>());
+                                                                                                                                RESULT.addIns(new If((Operacion)a.getIns(), b.getInstructions(),getIden()));
+                                                                                                                                RESULT.addSon("o_si");
+                                                                                                                                
+                                                                                                                                RESULT.addSon(a);
+                                                                                                                                RESULT.addSon("entonces");
+                                                                                                                                RESULT.addSon(b);
+                                                                                                                                
+                                                                                                                            :}
 ;
 
 
@@ -249,4 +375,51 @@ expresion  ::=
                                                     RESULT.addSon(a);
                                                     RESULT.addSon(")");
                                                 :}
+;
+
+expresion_relacional  ::= 
+   T_ID:a  MAYQUE   expresion:b            {:
+                                                    RESULT=new Production(new Node("Expresion_Relacional"), new Operacion(a,(Operacion)b.getIns(), Operacion.Tipo_operacion.MAYOR_QUE));
+                                                    RESULT.addSon(a);
+                                                    RESULT.addSon(">");
+                                                    RESULT.addSon(b);
+                                                    masIden();
+                                                :} 
+ | T_ID:a  MENQUE   expresion:b            {:
+                                                    RESULT=new Production(new Node("Expresion_Relacional"), new Operacion(a,(Operacion)b.getIns(), Operacion.Tipo_operacion.MENOR_QUE));
+                                                    RESULT.addSon(a);
+                                                    RESULT.addSon("<");
+                                                    RESULT.addSon(b);
+                                                    masIden();
+                                                :}  
+| T_ID:a  T_MAYIG   expresion:b            {:
+                                                    RESULT=new Production(new Node("Expresion_Relacional"), new Operacion(a,(Operacion)b.getIns(), Operacion.Tipo_operacion.MAYIG));
+                                                    RESULT.addSon(a);
+                                                    RESULT.addSon(">=");
+                                                    RESULT.addSon(b);
+                                                    masIden();
+                                                :} 
+
+| T_ID:a  T_MNIG   expresion:b            {:
+                                                    RESULT=new Production(new Node("Expresion_Relacional"), new Operacion(a,(Operacion)b.getIns(), Operacion.Tipo_operacion.MNIG));
+                                                    RESULT.addSon(a);
+                                                    RESULT.addSon("<=");
+                                                    RESULT.addSon(b);
+                                                    masIden();
+                                                :} 
+| T_ID:a  T_IGUAL   expresion:b            {:
+                                                    RESULT=new Production(new Node("Expresion_Relacional"), new Operacion(a,(Operacion)b.getIns(), Operacion.Tipo_operacion.ES_IGUAL));
+                                                    RESULT.addSon(a);
+                                                    RESULT.addSon("=");
+                                                    RESULT.addSon(b);
+                                                    masIden();
+                                                :} 
+
+| T_ID:a  T_DIFE   expresion:b            {:
+                                                    RESULT=new Production(new Node("Expresion_Relacional"), new Operacion(a,(Operacion)b.getIns(), Operacion.Tipo_operacion.ES_DIFERENTE));
+                                                    RESULT.addSon(a);
+                                                    RESULT.addSon("!=");
+                                                    RESULT.addSon(b);
+                                                    masIden();
+                                                :} 
 ;
