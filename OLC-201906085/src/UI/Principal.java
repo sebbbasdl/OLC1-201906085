@@ -267,7 +267,7 @@ public class Principal extends javax.swing.JFrame {
             
             if(desktop.isSupported(java.awt.Desktop.Action.BROWSE)){
                 try{
-                    java.net.URI uri = new java.net.URI("file:///C:/Users/sebas/OneDrive/Documentos/OLC1-201906085/OLC-201906085/manuales/Manual%20de%20usuario%20Proyecto%20OLC1%20(1).html");
+                    java.net.URI uri = new java.net.URI("file:///C:/Users/sebas/OneDrive/Documentos/OLC1-201906085/OLC-201906085/manuales/Manual%20Tecnico%20Proyecto%20OLC.html");
                     desktop.browse(uri);
                 }catch(URISyntaxException| IOException ex){}
             }

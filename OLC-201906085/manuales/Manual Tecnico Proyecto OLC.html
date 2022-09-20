@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Tecnico Proyecto OLC</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p>Universidad San Carlos de Guatemala<br>
+Facultad de Ingeniería<br>
+Escuela de Ciencias y Sistemas<br>
+Organización de Lenguajes y Compiladores 1</p>
+<p><em>SEBASTIAN ALEJANDRO DE LEON TENAZ	201906085</em></p>
+<h1 id="manual-tecnico---proyecto-1"><strong>MANUAL TECNICO - PROYECTO 1</strong></h1>
+<p>**</p>
+<h2 id="descripcion">Descripcion</h2>
+<p>Un cliente ha solicitado a usted un Pseudo-Parser para que el nuevo personal que no conoce los lenguajes de Python y Golang, pueda aplicar sus conocimientos en pseudocódigo y utilizando una aplicación, traducir este código y ver cómo se comportan las diferentes sintaxis de cada uno de los lenguajes ya que para cada uno existen diferentes características, por lo cual, se le solicita a usted que a partir de sus conocimientos en compiladores haga una implementación de las primeras 2 fases de un compilador y ejecute una traducción con la entrada de pseudocódigo a Python y Golang. Además que se pueda visualizar el diagrama de flujo resultante de la entrada</p>
+<h2 id="herramientas-utilizadas">Herramientas utilizadas:</h2>
+<ul>
+<li>Apache Netbeans IDE 12.4</li>
+<li>JCUP</li>
+<li>JLEX</li>
+</ul>
+<h2 id="paquetes-y-clases">Paquetes y Clases:</h2>
+<ul>
+<li>
+<p>analizadores:	Este paquete era el encargado de los archivos generados y utilizados por JCUP y JLEX.</p>
+</li>
+<li>
+<p>Estructuras: Este paquete tiene los diferentes archivos de las estructuras utilizadas para la realizacion del de Producciones, arboles y nodos</p>
+<ul>
+<li>Arbol.java<br>
+<img src="https://github.com/sebbbasdl/OLC1-201906085/blob/master/OLC-201906085/imagenes%20reporte/arbolarchivo.PNG?raw=true" alt="enter image description here"></li>
+<li>Node.java<br>
+<img src="https://github.com/sebbbasdl/OLC1-201906085/blob/master/OLC-201906085/imagenes%20reporte/node.PNG?raw=true" alt="enter image description here"></li>
+<li>Production.java<br>
+<img src="https://github.com/sebbbasdl/OLC1-201906085/blob/master/OLC-201906085/imagenes%20reporte/production.PNG?raw=true" alt="enter image description here"></li>
+</ul>
+</li>
+<li>
+<p>Estructuras.Instructions: Este paquete se utilizo para poder realizar las traducciones de el archivo de entrada, cada sentencia tiene su clase, por ejemplo: Declaraciones.java, If.java, entre otras.</p>
+<ul>
+<li>
+<p>Declaracion.java<br>
+<img src="https://github.com/sebbbasdl/OLC1-201906085/blob/master/OLC-201906085/imagenes%20reporte/Declaracion.PNG?raw=true" alt=""></p>
+</li>
+<li>
+<p>if.java<br>
+<img src="https://github.com/sebbbasdl/OLC1-201906085/blob/master/OLC-201906085/imagenes%20reporte/if.PNG?raw=true" alt=""></p>
+</li>
+<li>
+<p>Instruccion.java<br>
+<img src="https://github.com/sebbbasdl/OLC1-201906085/blob/master/OLC-201906085/imagenes%20reporte/instruccion.PNG?raw=true" alt=""></p>
+</li>
+<li>
+<p>Operacion.java<br>
+<img src="https://github.com/sebbbasdl/OLC1-201906085/blob/master/OLC-201906085/imagenes%20reporte/Operacion.PNG?raw=true" alt=""></p>
+</li>
+</ul>
+</li>
+<li>
+<p>UI: Este paquete posee la interfaz grafica.</p>
+</li>
+<li>
+<p>Utils: Este paquete es el manejo de archivos dentro de la aplicacion y el codigo para ejecutar el analisis de entrada, asi como la generacion del arbol.</p>
+</li>
+</ul>
+<h2 id="terminales-y-no-terminales-utilizados">Terminales y no Terminales utilizados:</h2>
+<p><img src="https://github.com/sebbbasdl/OLC1-201906085/blob/master/OLC-201906085/imagenes%20reporte/terminales%20y%20noterminales.PNG?raw=true" alt=""></p>
+</div>
+</body>
+
+</html>
