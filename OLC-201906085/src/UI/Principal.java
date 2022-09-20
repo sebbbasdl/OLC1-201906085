@@ -124,7 +124,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Manual de Usuario");
+        jButton3.setText("Manual de Tecnico");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -254,7 +254,7 @@ public class Principal extends javax.swing.JFrame {
             
             if(desktop.isSupported(java.awt.Desktop.Action.BROWSE)){
                 try{
-                    java.net.URI uri = new java.net.URI("file:///C:/Users/sebas/Downloads/Manual%20de%20usuario%20Proyecto%20OLC1.html");
+                    java.net.URI uri = new java.net.URI("file:///C:/Users/sebas/OneDrive/Documentos/OLC1-201906085/OLC-201906085/manuales/Manual%20de%20usuario%20Proyecto%20OLC1%20(1).html");
                     desktop.browse(uri);
                 }catch(URISyntaxException| IOException ex){}
             }
@@ -262,7 +262,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        if(java.awt.Desktop.isDesktopSupported()){
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+            
+            if(desktop.isSupported(java.awt.Desktop.Action.BROWSE)){
+                try{
+                    java.net.URI uri = new java.net.URI("file:///C:/Users/sebas/OneDrive/Documentos/OLC1-201906085/OLC-201906085/manuales/Manual%20de%20usuario%20Proyecto%20OLC1%20(1).html");
+                    desktop.browse(uri);
+                }catch(URISyntaxException| IOException ex){}
+            }
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
