@@ -1,0 +1,135 @@
+terminal String T_INGRESAR;
+terminal String T_ID;
+terminal String T_COMO;
+terminal String T_STRING;
+terminal String T_INT;
+terminal String T_CADENA;
+terminal String T_CON_VALOR;
+terminal String T_ENTERO;
+terminal String T_CARACTER;
+terminal String T_CHAR;
+terminal String T_BOOLEAN;
+terminal String T_VALOR_BOOL;
+terminal String T_FLOAT;
+terminal String T_INICIO;
+terminal String T_FIN;
+terminal String T_ASIG;
+terminal String PTCOMA,PARIZQ,PARDER,LLAVIZQ,LLAVDER;
+terminal String MAS,MENOS,POR,DIVIDIDO;
+terminal String MENQUE,MAYQUE;
+terminal String T_SI;
+terminal String UMENOS;
+terminal String T_CONTRARIO;
+terminal String T_O_SI;
+terminal String T_ENTONCES;
+terminal String T_FIN_SI;
+terminal String T_MAYIG,T_MNIG,T_IGUAL,T_DIFE;
+
+
+
+
+non terminal ini;
+non terminal Production instrucciones;
+non terminal Production instruccion;
+non terminal Production declaracion;
+non terminal Production expresion;
+non terminal Production expresion_relacional;
+non terminal Production else_ifs;
+non terminal Production if;
+
+precedence left MAS,MENOS;
+precedence left POR,DIVIDIDO;
+precedence right UMENOS; 
+
+
+start with ini; 
+
+ini::=T_INICIO instrucciones:a T_FIN  
+
+
+
+;
+
+instrucciones ::= 
+   instrucciones:a instruccion:b    
+ | instruccion :a       
+
+ 
+; 
+
+instruccion ::= 
+    declaracion:a         
+    |if:a         
+    
+;
+
+declaracion ::=
+    T_INGRESAR T_ID:a T_COMO T_STRING T_CON_VALOR T_CADENA:b PTCOMA    
+
+    |T_INGRESAR T_ID:a T_COMO T_INT T_CON_VALOR expresion:b  PTCOMA  
+
+    |T_INGRESAR T_ID:a T_COMO T_CARACTER T_CON_VALOR T_CHAR:b  PTCOMA   
+    |T_INGRESAR T_ID:a T_COMO T_BOOLEAN T_CON_VALOR T_VALOR_BOOL:b  PTCOMA  
+                                                           
+    
+                                                            
+                                                           
+    |T_ID:a T_ASIG T_CADENA:b  PTCOMA   
+
+                                                            
+                                                           
+    |T_ID:a T_ASIG expresion:b  PTCOMA   
+
+                                                            
+                                                           
+    |T_ID:a T_ASIG T_CHAR:b  PTCOMA   
+                                                            
+                                                           
+    |T_ID:a T_ASIG T_VALOR_BOOL:b  PTCOMA   
+                                                             
+                                                                
+;
+
+if ::=
+
+ T_SI expresion_relacional:a   instrucciones:b T_FIN_SI                                                     
+ | T_SI  expresion_relacional:a  instrucciones:b  else_ifs:l T_CONTRARIO instrucciones:c T_FIN_SI    
+
+
+
+ | T_SI  expresion_relacional:a   instrucciones:b   T_CONTRARIO  instrucciones:c T_FIN_SI    
+
+
+
+;
+
+
+else_ifs ::= 
+    else_ifs:l T_O_SI expresion_relacional:a  T_ENTONCES instrucciones:b                                 
+  | T_O_SI  expresion_relacional:a T_ENTONCES instrucciones:b                                              
+;
+
+
+
+expresion  ::= 
+    MENOS expresion:a                                
+ |  expresion:a MAS        expresion:b          
+ |  expresion:a POR        expresion:b         
+ |  expresion:a DIVIDIDO   expresion:b                                                          
+                                                    RESULT=new Production(new Node("Expresion"), new Operacion((Operacion)a.getIns(),(Operacion)b.getIns(),Operacion.Tipo_operacion.DIVISION));
+                                                    RESULT.addSon(a);
+                                                    RESULT.addSon("/");
+                                                    RESULT.addSon(b);
+                                               
+ |  T_FLOAT:a                                   
+
+expresion_relacional  ::= 
+   T_ID:a  MAYQUE   expresion:b            
+ | T_ID:a  MENQUE   expresion:b             
+| T_ID:a  T_MAYIG   expresion:b            
+
+| T_ID:a  T_MNIG   expresion:b            
+| T_ID:a  T_IGUAL   expresion:b            
+
+| T_ID:a  T_DIFE   expresion:b            
+;
